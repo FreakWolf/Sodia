@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "77919230047",
+    "project_id": "sodia-712a5",
+    "storage_bucket": "sodia-712a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77919230047:android:df07129f121168c012e3ea",
+        "android_client_info": {
+          "package_name": "com.example.sodia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOs-Sw_F4748LTzdxd1jDcrJTd5GP6LeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
