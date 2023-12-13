@@ -1,9 +1,12 @@
 package com.example.sodia.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,7 +53,7 @@ public class Home extends Fragment {
 
         init(view);
 
-        reference = FirebaseFirestore.getInstance().collection("Posts").document(user.getUid());
+//        reference = FirebaseFirestore.getInstance().collection("Posts").document(user.getUid());
 
         list = new ArrayList<>();
         adapter = new HomeAdapter(list, getContext());
@@ -61,8 +64,12 @@ public class Home extends Fragment {
     }
 
     private void init(View view){
-        recyclerView = view.findViewById(R.id.recycleView);
 
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        if (getActivity() != null)
+            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+
+        recyclerView = view.findViewById(R.id.recycleView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -70,8 +77,15 @@ public class Home extends Fragment {
         user = auth.getCurrentUser();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void loadDataFromFirestore(){
 
+        list.add(new HomeModel("Rohit Singh", "13/12/2023", "", "", "123456", 12));
+        list.add(new HomeModel("Rohit Singh", "13/12/2023", "", "", "678901", 12));
+        list.add(new HomeModel("Rohit Singh", "13/12/2023", "", "", "234567", 12));
+        list.add(new HomeModel("Rohit Singh", "13/12/2023", "", "", "456789", 12));
+
+        adapter.notifyDataSetChanged();
     }
 
 }
