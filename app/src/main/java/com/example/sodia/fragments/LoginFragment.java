@@ -97,9 +97,15 @@ public class LoginFragment extends Fragment {
     }
 
     private void clickListener(){
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+
+        forgetPasswordTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((FragmentReplaceActivity) getActivity()).setFragment(new ForgotPassword());
+            }
+        });
+
+        loginBtn.setOnClickListener((v) -> {
 
                 String email = emailET.getText().toString();
                 String password = passET.getText().toString();
@@ -130,7 +136,6 @@ public class LoginFragment extends Fragment {
                             progressBar.setVisibility(View.GONE); // Add this line
 
                         });
-            }
         });
 
         googleSignInbtn.setOnClickListener(new View.OnClickListener() {
